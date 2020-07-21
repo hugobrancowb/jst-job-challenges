@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col" id="tabela" *ngIf="data">
+    <div class="col" id="tabela" *ngIf="most_recent_data">
       <table class="table table-hover table-sm">
         <thead>
           <tr>
@@ -9,7 +9,7 @@
             <th scope="col">Quanto vale 1,00 USD nesta moeda</th>
           </tr>
         </thead>
-        <tbody *ngFor="let item of most_recent_data.array">
+        <tbody *ngFor="let item of most_recent_data">
           <tr>
             <th scope="row">{{ item.sigla }}</th>
             <td>{{ item.nome }}</td>
