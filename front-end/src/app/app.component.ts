@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  DataserviceService,
-  HistoricalData,
-} from './services/dataservice.service';
 
 @Component({
   selector: 'app-root',
@@ -11,19 +7,8 @@ import {
 })
 export class AppComponent implements OnInit {
   title = 'Cotação do Dólar';
-  data: HistoricalData;
 
-  constructor(private dataservice: DataserviceService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.dataservice.get_sample().subscribe((data: HistoricalData) => {
-      this.data = data; /* valor inicial: Sample Data */
-      console.log('subscribe');
-      console.log(this.data);
-    });
-  }
-
-  get_data_from_service(): void {
-    this.dataservice.get_sample();
-  }
+  ngOnInit(): void {}
 }
