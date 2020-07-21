@@ -8,7 +8,7 @@ Utiliza API da [Frankfurter](https://www.frankfurter.app/docs/) para obter dados
 
 Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma versão com funcionalidade real.
 
-- [] Trabalhar com dados fakes antes de implementar API;
+- [x] Trabalhar com dados fakes antes de implementar API;
 - [] Gerar uma tabela;
 - [] Gerar um gráfico;
 - [] Encontrar solução de calendário para permitir a busca;
