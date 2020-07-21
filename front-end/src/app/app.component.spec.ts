@@ -27,12 +27,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('data should be defined', () => {
+  it('should trigger function after click on button', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const service = TestBed.get(DataserviceService);
     const app = fixture.componentInstance;
 
-    spyOn(app, 'get_data_from_service').and.returnValue(SampleData);
+    spyOn(app, 'get_data_from_service');
 
     const button = fixture.debugElement.nativeElement.querySelector(
       'button.getsample'
