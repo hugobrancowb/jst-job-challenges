@@ -2,3 +2,8 @@
 
 /* Import Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+
+body {
+  min-height: 100vh;
+  background-color: (0, 0, 0, 0.04);
+}

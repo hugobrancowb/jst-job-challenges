@@ -1,1 +1,22 @@
-<p>tabela works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col" id="tabela" *ngIf="data">
+      <table class="table table-hover table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Abreviatura</th>
+            <th scope="col">Moeda</th>
+            <th scope="col">Quanto vale 1,00 USD nesta moeda</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of most_recent_data.array">
+          <tr>
+            <th scope="row">{{ item.sigla }}</th>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.valor }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
