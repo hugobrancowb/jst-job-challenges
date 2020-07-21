@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-import { TabelaComponent } from './tabela.component';
+import { TabelaComponent, AllCurrencies } from './tabela.component';
 import {
   DataserviceService,
   HistoricalData,
@@ -38,7 +38,6 @@ describe('TabelaComponent', () => {
 
   it('should get data from subscribing to service', async(() => {
     const service = TestBed.get(DataserviceService);
-
     const sampledata: HistoricalData = SampleData;
 
     spyOn(service, 'get_sample').and.returnValue(of(sampledata));
@@ -46,5 +45,16 @@ describe('TabelaComponent', () => {
     fixture.detectChanges();
 
     expect(component.data).toBeDefined();
+  }));
+
+  it('should convert data:HistoricalData to most_recent_data:AllCurrencies', async(() => {
+    const service = TestBed.get(DataserviceService);
+    const sampledata: HistoricalData = SampleData;
+
+    spyOn(service, 'get_sample').and.returnValue(of(sampledata));
+
+    fixture.detectChanges();
+
+    expect(component.most_recent_data).toBeInstanceOf(AllCurrencies);
   }));
 });

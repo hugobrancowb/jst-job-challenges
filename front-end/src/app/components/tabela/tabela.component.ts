@@ -25,7 +25,7 @@ export class TabelaComponent implements OnInit {
   }
 }
 
-class AllCurrencies {
+export class AllCurrencies {
   array: Array<CurrencyValue> = [];
 
   constructor(data: HistoricalData, dataservice: DataserviceService) {
