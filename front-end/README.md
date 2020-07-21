@@ -1,37 +1,34 @@
-# Desafio @ Justa Front-end
+# Cotação do Dólar
 
-Este teste é apresentado aos candidatos as vagas de desenvolvimento Front-end para avaliar os quesitos técnicos.
+Utiliza API da [Frankfurter](https://www.frankfurter.app/docs/) para obter dados da cotação do dólar para diversas moedas ao fornecer uma faixa de tempo
 
-## Descrição
+## Planejamento
 
-Criar uma Single Page Application (SPA) de um dashboard com gráficos (ChartJS, ApexCharts, D3, etc.), tabela para a exibição de dados (realizar requisições HTTP para exibir os dados na tabela, pode usar o [Public Apis](https://github.com/public-apis/public-apis)).
+### Primeiras funcionalidades gerais
 
-Você deve fazer um fork do projeto e deixar publico para que possamos analisar commits e o processo de desenvolvimento.
+Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma versão com funcionalidade real.
 
-Links com conteúdo para alguns dos temas citados serão fornecidos no fim da descrição do desafio.
+- [] Trabalhar com dados fakes antes de implementar API;
+- [] Gerar uma tabela;
+- [] Gerar um gráfico;
+- [] Encontrar solução de calendário para permitir a busca;
+- [] Converter calendário em datas no formato do API (yyyy-mm-dd);
+- [] Obter os dados através de uma API;
 
-### Requisitos mandatórios
+### MVP
 
-- Uso Algum framework/biblioteca, como React, Vue, Angular 2+ ou JavaScript Vanilla.
-- Biblioteca para requisições HTTP (ex.: Axios), ou Fetch API.
-- Algum pré-processador CSS, como SASS, LESS, ou algum outro.
-- Ser responsivo.
-- Usar algum linter para o JavaScript/TypeScript (ESLint, TSLint) e Prettier.
-- Deploy da aplicação desenvolvida.
+Antes de realizar a pesquisa:
 
-### Avaliação
+- [] Escolher datas (início e fim);
+- [] Escolher a moeda de preferência;
 
-Entre os critérios de avaliação estão:
+Após realizar a pesquisa
 
-- Usabilidade da aplicação.
-- Código limpo e organização.
-- Documentação de código.
-- Documentação do projeto (readme).
-- Performance.
-- Testes (Jest, Testing Library, Karma, Jasmine ou E2E com Cypress)
+- [] Permitir escolher outras moedas sem precisar realizar nova requisição de API;
+- [] Permitir escolher novas datas ();
 
-### Links Úteis
+### O que seria interessante implementar mas não é urgente
 
-- [GitFlow](https://medium.com/trainingcenter/utilizando-o-fluxo-git-flow-e63d5e0d5e04)
-- [Design de aplicações](https://material.io/design/)
-- [Clean Code](https://simpleprogrammer.com/clean-code-principles-better-programmer/)
+- [] Permitir escolher novas datas sem realizar nova Request caso os dados obtidos já contenham a faixa de datas desejada;
+- [] Impedir que usuário escolha data-inicio igual à data-fim na pesquisa;
+- [] Adicionar funcionalidade para converter dólares para a moeda selecionada (e vice-versa);
