@@ -19,4 +19,9 @@ describe('DataserviceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return full name of currency', () => {
+    const response = service.get_name('BRL');
+    expect(response).toBe('Brazilian Real');
+  });
 });

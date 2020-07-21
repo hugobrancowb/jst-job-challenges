@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
-import { SampleData } from './samples/sampledata';
+import { SampleData, CurrenciesNames } from './samples/sampledata';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +29,12 @@ export class DataserviceService {
 
     this.set_sample(data); // linha utilizada para teste apenas
     return this.response.asObservable();
+  }
+
+  get_name(abrv: string): string {
+    const names = CurrenciesNames;
+
+    return names[abrv];
   }
 }
 
