@@ -6,6 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 
+/* Material */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -13,6 +21,22 @@ import { ComponentsModule } from './components/components.module';
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,
+    /* Material */
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    // MatIconModule,
+  ],
+  exports: [
+    /* Material */
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    // MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
