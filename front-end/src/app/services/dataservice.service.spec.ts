@@ -2,7 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
-import { DataserviceService } from './dataservice.service';
+import { DataserviceService, TradeHistory } from './dataservice.service';
+import { SampleData } from '../services/samples/sampledata';
 
 describe('DataserviceService', () => {
   let service: DataserviceService;
@@ -21,7 +22,8 @@ describe('DataserviceService', () => {
   });
 
   it('should return full name of currency', () => {
-    const response = service.get_name('BRL');
-    expect(response).toBe('Brazilian Real');
+    const sampledata = new TradeHistory(SampleData);
+
+    expect(sampledata.get_name('BRL')).toBe('Brazilian Real');
   });
 });

@@ -1,14 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 
-import { TabelaComponent, TradeHistory } from './tabela.component';
+import { TabelaComponent } from './tabela.component';
 import {
   DataserviceService,
-  HistoricalData,
+  DataResponse,
+  TradeByDate,
 } from '../../services/dataservice.service';
 
 import { SampleData } from '../../services/samples/sampledata';
-import { of } from 'rxjs';
 
 describe('TabelaComponent', () => {
   let component: TabelaComponent;
@@ -30,7 +31,7 @@ describe('TabelaComponent', () => {
 
   it('should get data from subscribing to service', async(() => {
     const service = TestBed.get(DataserviceService);
-    const sampledata: HistoricalData = SampleData;
+    const sampledata: DataResponse = SampleData;
 
     spyOn(service, 'get_sample').and.returnValue(of(sampledata));
 
@@ -39,14 +40,19 @@ describe('TabelaComponent', () => {
     expect(component.most_recent_data).toBeDefined();
   }));
 
-  it('should convert data:HistoricalData to most_recent_data:TradeHistory', async(() => {
+  it('most_recent_data should be instance of TradeByDate', async(() => {
     const service = TestBed.get(DataserviceService);
-    const sampledata: HistoricalData = SampleData;
+    const sampledata: DataResponse = SampleData;
 
     spyOn(service, 'get_sample').and.returnValue(of(sampledata));
 
     fixture.detectChanges();
 
-    expect(component.most_recent_data).toBeInstanceOf(TradeHistory);
+    /* como TradyByDate é uma interface, então olhamos para suas keys */
+    expect(Object.keys(component.most_recent_data[0])).toEqual([
+      'sigla',
+      'nome',
+      'valor',
+    ]);
   }));
 });
