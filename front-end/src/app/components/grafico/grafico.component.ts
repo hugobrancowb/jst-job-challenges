@@ -47,8 +47,8 @@ export class GraficoComponent implements OnInit {
       ],
       layout: {
         title: false,
-        hovermode: 'closest',
         font: { size: 12 },
+        hovermode: 'closest',
         xaxis: { title: 'Datas', fixedrange: true },
         yaxis: {
           title: 'Valor em ' + this.currency,
@@ -56,6 +56,8 @@ export class GraficoComponent implements OnInit {
           showticksuffix: 'all',
           ticksuffix: ' ' + this.currency,
         },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
       },
       config: {
         responsive: true,
