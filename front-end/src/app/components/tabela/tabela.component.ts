@@ -16,7 +16,7 @@ export class TabelaComponent implements OnInit {
   constructor(private dataservice: DataserviceService) {}
 
   ngOnInit(): void {
-    this.dataservice.get_sample().subscribe((data: TradeHistory) => {
+    this.dataservice.get_data().subscribe((data: TradeHistory) => {
       const _tradeHistory = data;
       this.most_recent_data = _tradeHistory.get_data_from_last_date();
     });

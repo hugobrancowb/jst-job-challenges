@@ -4,6 +4,7 @@ import { CurrenciesNames } from '../../services/samples/sampledata';
 
 /* Material */
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { DataserviceService } from 'src/app/services/dataservice.service';
 
 @Component({
   selector: 'app-userinput',
@@ -17,7 +18,7 @@ export class UserinputComponent implements OnInit {
 
   lista_moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
 
-  constructor() {}
+  constructor(private dataservice: DataserviceService) {}
 
   ngOnInit(): void {}
 
@@ -38,6 +39,8 @@ export class UserinputComponent implements OnInit {
       /* Dólar é a opção padrão */
       this.moeda.patchValue('USD');
     }
+
+    this.dataservice.get_sample(); /* mudar para função que dispara HTTP Request */
   }
 
   date_change(

@@ -20,13 +20,15 @@ export class GraficoComponent implements OnInit {
   constructor(private dataservice: DataserviceService) {}
 
   ngOnInit(): void {
-    this.dataservice.get_sample().subscribe((data: TradeHistory) => {
+    this.dataservice.get_data().subscribe((data: TradeHistory) => {
       this.data = data;
+
       this.titulo = // atualiza titulo do grafico
         'Valor necessário em ' +
         this.currency +
         ' para comprar 1' +
         this.data.base;
+
       this.plot(); // plota o grafico
     });
   }

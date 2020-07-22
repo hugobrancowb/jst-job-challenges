@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 
 import { SampleData, CurrenciesNames } from './samples/sampledata';
 
@@ -8,22 +8,29 @@ import { SampleData, CurrenciesNames } from './samples/sampledata';
   providedIn: 'root',
 })
 export class DataserviceService {
-  private response: BehaviorSubject<TradeHistory>;
+  private response: Subject<TradeHistory>;
 
   constructor(private http: HttpClient) {
-    this.response = new BehaviorSubject<TradeHistory>(SampleData);
+    this.response = new Subject<TradeHistory>();
   }
 
-  set_sample(input: DataResponse): void {
+  set_data(input: DataResponse): void {
     const output = new TradeHistory(input);
     this.response.next(output);
   }
 
+  // Retorna data do observable para todos subscribers
+  get_data(): Observable<TradeHistory> {
+    return this.response.asObservable();
+  }
+
   get_sample(): Observable<TradeHistory> {
+    /* esta funcao, por ora, cumpre o papel da API */
+
     /* apenas para testes: importa sample data */
     const data = SampleData as DataResponse;
 
-    this.set_sample(data); /* transforma em TradeHistory e aciona o next() */
+    this.set_data(data); /* transforma em TradeHistory e aciona o next() */
     return this.response.asObservable();
   }
 }

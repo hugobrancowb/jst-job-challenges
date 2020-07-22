@@ -25,7 +25,7 @@ Antes de realizar a pesquisa:
 
 Após realizar a pesquisa
 
-- [] Permitir que o usuário altere sua escolha de moeda ou datas e realizar nova Request;
+- [x] Permitir que o usuário altere sua escolha de moeda ou datas e realizar nova Request;
 
 ### O que seria interessante implementar mas não é urgente
 
