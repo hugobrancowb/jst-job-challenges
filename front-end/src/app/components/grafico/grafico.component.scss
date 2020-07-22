@@ -1,17 +1,24 @@
 /* Gráfico */
 div.main.container {
   padding: 0px 60px 60px 60px;
-}
 
-.titulo_do_grafico {
-  text-align: center;
-}
+  min-height: 50vh;
+  max-height: 90vh;
 
-div#grafico {
-  background-color: rgba(0, 0, 0, 0);
+  &.hide {
+    display: none;
+  }
 
-  /* reduz o espaço reservado para o titulo dentro do grafico Plotly */
-  position: relative;
-  top: -50px;
-  z-index: 5;
+  .titulo_do_grafico {
+    text-align: center;
+  }
+
+  div#grafico {
+    background-color: rgba(0, 0, 0, 0);
+
+    /* reduz o espaço reservado para o titulo dentro do grafico Plotly */
+    position: relative;
+    top: -50px;
+    z-index: 5;
+  }
 }

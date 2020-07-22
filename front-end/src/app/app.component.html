@@ -4,10 +4,12 @@
 
 <app-userinput></app-userinput>
 
+<app-infopanel></app-infopanel>
+
 <app-tabela></app-tabela>
 
-<app-grafico [currency]="'BRL'"></app-grafico>
+<app-grafico></app-grafico>
 
-<footer class="footer">
+<footer class="footer" *ngIf="data">
   <p>desenvolvido por <a href="#">hugo branco</a></p>
 </footer>

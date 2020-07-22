@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   DataserviceService,
   CurrencyValue,
@@ -13,7 +13,7 @@ declare var Plotly: any;
   styleUrls: ['./grafico.component.scss'],
 })
 export class GraficoComponent implements OnInit {
-  @Input() currency: string; // moeda selecionada para analisar seu valor em relação ao dólar
+  currency = 'BRL'; // moeda selecionada para analisar seu valor em relação ao dólar
   data: TradeHistory; // todos os dados históricos de cotação do dólar
   titulo: string;
 

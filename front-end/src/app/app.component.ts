@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  DataserviceService,
+  TradeHistory,
+} from './services/dataservice.service';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'Cotação do Dólar';
+  data: TradeHistory;
+  title = 'Cotação de Moedas';
 
-  constructor() {}
+  constructor(private dataservice: DataserviceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataservice.get_data().subscribe((data: TradeHistory) => {
+      this.data = data;
+    });
+  }
 }

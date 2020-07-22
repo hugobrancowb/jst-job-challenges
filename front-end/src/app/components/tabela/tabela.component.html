@@ -1,6 +1,6 @@
-<div class="main container">
+<div class="main container" [ngClass]="!most_recent_data ? 'hide' : ''">
   <div class="row">
-    <div class="col" id="tabela" *ngIf="most_recent_data">
+    <div class="col" id="tabela">
       <table class="table table-hover table-sm">
         <thead>
           <tr>
