@@ -1,0 +1,24 @@
+/* Info Panel */
+
+/* Colors */
+$torquoise: #4ECDC4;
+$lime: #EDFF7A;
+$cinza: #292F36;
+$orange: #bb4430;
+
+div.main.container {
+  padding: 60px 0;
+
+  &.hide {
+    display: none;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
+}

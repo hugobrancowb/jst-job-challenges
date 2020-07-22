@@ -14,13 +14,20 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { InfopanelComponent } from './infopanel/infopanel.component';
 
 @NgModule({
-  declarations: [TabelaComponent, GraficoComponent, UserinputComponent],
+  declarations: [
+    TabelaComponent,
+    GraficoComponent,
+    UserinputComponent,
+    InfopanelComponent,
+  ],
   exports: [
     TabelaComponent,
     GraficoComponent,
     UserinputComponent,
+    InfopanelComponent,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
