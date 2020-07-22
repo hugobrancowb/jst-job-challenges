@@ -9,7 +9,8 @@ Utiliza API da [Frankfurter](https://www.frankfurter.app/docs/) para obter dados
 Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma versão com funcionalidade real.
 
 - [x] Trabalhar com dados fakes antes de implementar API;
-- [] Gerar uma tabela;
+- [x] Ter certeza que os tipos utilizados funcionarão para todas funcionalidades abaixo;
+- [x] Gerar uma tabela;
 - [] Gerar um gráfico;
 - [] Encontrar solução de calendário para permitir a busca;
 - [] Converter calendário em datas no formato do API (yyyy-mm-dd);

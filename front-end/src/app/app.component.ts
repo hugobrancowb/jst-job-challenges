@@ -11,4 +11,6 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  /* implementar opções de moedas para o plot do gráfico */
 }
