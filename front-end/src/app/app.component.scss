@@ -1,8 +1,18 @@
+/* Nav e Footer */
+
+/* Colors */
+$torquoise: #4ECDC4;
+$lime: #EDFF7A;
+$cinza: #292F36;
+$orange: #bb4430;
+
 nav.navbar {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: $torquoise;
+  padding: 30px 20px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
 
   h2 {
-    margin-left: 60px;
+    margin: 0 60px 0 0;
     font-weight: 600;
   }
 }

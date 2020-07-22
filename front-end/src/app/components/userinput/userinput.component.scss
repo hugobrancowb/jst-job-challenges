@@ -1,0 +1,37 @@
+/* User Input */
+
+/* Colors */
+$torquoise: #4ECDC4;
+$lime: #EDFF7A;
+$cinza: #292F36;
+$orange: #bb4430;
+
+div.main.container {
+  max-width: 100%;
+  padding: 30px 20px;
+
+  background-color: rgba(0, 0, 0, 0.07);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+
+  .data_picker,
+  .currency_picker,
+  button {
+    margin: 0 15px;
+  }
+
+  input,
+  button {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button:hover {
+    color: #000000;
+    box-shadow: 0px 3px 1px -1px rgba(0, 0, 0, 0.25), 0px 2px 2px 0px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+}
