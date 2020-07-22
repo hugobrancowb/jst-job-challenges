@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GraficoComponent } from './grafico.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 describe('GraficoComponent', () => {
   let component: GraficoComponent;
@@ -8,9 +9,10 @@ describe('GraficoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraficoComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule],
+      declarations: [GraficoComponent],
+      providers: [HttpClient],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
