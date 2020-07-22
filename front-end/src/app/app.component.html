@@ -5,25 +5,37 @@
 <div class="container opcoes">
   <div class="row">
     <div class="col-12">
-      <form [formGroup]="form_options" (ngSubmit)="get_response()">
-        <mat-form-field class="example-full-width">
-          <mat-label>Start date</mat-label>
-          <input
-            (dateChange)="date_change($event)"
-            matInput
-            [matDatepicker]="picker"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+      <mat-form-field class="data_picker">
+        <mat-label>Data início</mat-label>
+        <input
+          (dateChange)="date_change('inicio', $event)"
+          matInput
+          [matDatepicker]="picker_inicio"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker_inicio"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker_inicio></mat-datepicker>
+      </mat-form-field>
 
-        <button type="button" (click)="get_response()" class="btn btn-primary">
-          Get Response
-        </button>
-      </form>
+      <mat-form-field class="data_picker">
+        <mat-label>Data fim</mat-label>
+        <input
+          (dateChange)="date_change('fim', $event)"
+          matInput
+          [matDatepicker]="picker_fim"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker_fim"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker_fim></mat-datepicker>
+      </mat-form-field>
+
+      <button type="button" (click)="get_response()" class="btn btn-primary">
+        Get Response
+      </button>
     </div>
   </div>
 </div>

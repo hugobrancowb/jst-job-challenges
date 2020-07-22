@@ -10,30 +10,39 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 export class AppComponent implements OnInit {
   title = 'Cotação do Dólar';
 
-  /* grupo criado para o Form de busca */
-  form_options = new FormGroup({
-    start_date: new FormControl(''),
-  });
+  data_inicio: Date;
+  data_fim: Date;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   get_response() {
-    console.log(this.form_options.value.start_date);
+    console.log('');
   }
 
-  date_change(event: MatDatepickerInputEvent<Date>) {
-    // start by converting to stirng format dd/mm/yyyy
-    const date_format = event.value.toLocaleString('pt-BR', {
+  date_change(
+    inicio_ou_fim: string,
+    event: MatDatepickerInputEvent<Date>
+  ): void {
+    /* associa a data de acordo com o indicador */
+    if (inicio_ou_fim === 'inicio') {
+      this.data_inicio = event.value;
+    } else {
+      this.data_fim = event.value;
+    }
+  }
+
+  /* converte para string no formato yyyy-mm-dd */
+  date_to_string(date: Date): string {
+    const date_string = date.toLocaleString('pt-BR', {
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
     });
 
-    console.log(event.value);
-    console.log(date_format);
-  }
+    const string_array = date_string.split('/');
 
-  /* implementar opções de moedas para o plot do gráfico */
+    return string_array[2] + '-' + string_array[1] + '-' + string_array[0];
+  }
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
@@ -20,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ComponentsModule,
     /* Material */
     BrowserAnimationsModule,
@@ -31,11 +33,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   exports: [
     /* Material */
-    BrowserAnimationsModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
+    // BrowserAnimationsModule,
+    // MatNativeDateModule,
+    // MatInputModule,
+    // MatDatepickerModule,
+    // MatFormFieldModule,
     // MatIconModule,
   ],
   providers: [],
