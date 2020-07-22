@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
   DataserviceService,
-  TradeByDate,
+  CurrencyValue,
   TradeHistory,
 } from '../../services/dataservice.service';
 
@@ -15,16 +15,19 @@ declare var Plotly: any;
 export class GraficoComponent implements OnInit {
   @Input() currency: string; // moeda selecionada para analisar seu valor em relação ao dólar
   data: TradeHistory; // todos os dados históricos de cotação do dólar
+  titulo: string;
 
   constructor(private dataservice: DataserviceService) {}
 
   ngOnInit(): void {
-    console.log(this.currency);
-
     this.dataservice.get_sample().subscribe((data: TradeHistory) => {
       this.data = data;
-      console.log(this.data);
-      this.plot();
+      this.titulo = // atualiza titulo do grafico
+        'Valor necessário em ' +
+        this.currency +
+        ' para comprar 1' +
+        this.data.base;
+      this.plot(); // plota o grafico
     });
   }
 
@@ -33,22 +36,17 @@ export class GraficoComponent implements OnInit {
     const graph = {
       data: [
         {
-          x: [1, 2, 3, 4, 5],
-          y: [1, 2, 2, 4, 5],
+          x: this.get_dates_from_currency(),
+          y: this.get_values_from_currency(this.currency),
           type: 'scatter',
           mode: 'lines+markers+text',
           textposition: 'top',
           showlegend: false,
           hovertemplate: '%{y:.3f} ' + this.currency + '<extra></extra>',
-          // marker: { color: 'rgb(251,174,53)' }, // cor da linha
         },
       ],
       layout: {
-        title:
-          'Valor necessário em ' +
-          this.currency +
-          ' para comprar 1' +
-          this.data.base,
+        title: false,
         hovermode: 'closest',
         font: { size: 12 },
         xaxis: { title: 'Datas', fixedrange: true },
@@ -66,5 +64,28 @@ export class GraficoComponent implements OnInit {
     };
 
     Plotly.newPlot('grafico', graph.data, graph.layout, graph.config);
+  }
+
+  /* exporta uma array com todos valores da moeda */
+  get_values_from_currency(abreviacao_da_moeda: string): Array<number> {
+    const array_output: Array<number> = [];
+    const dates = Object.keys(this.data.array);
+
+    dates.map((date) => {
+      // para cada data da array...
+      const teste = Object.values(this.data.array[date]);
+      teste.map((values: CurrencyValue) => {
+        if (values.sigla === abreviacao_da_moeda) {
+          array_output.push(values.valor);
+        }
+      });
+    });
+
+    return array_output;
+  }
+
+  get_dates_from_currency(): Array<string> {
+    const dates = Object.keys(this.data.array);
+    return dates;
   }
 }

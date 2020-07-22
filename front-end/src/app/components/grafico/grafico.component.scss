@@ -1,3 +1,12 @@
+h2.titulo_do_grafico {
+  text-align: center;
+}
+
 div#grafico {
   background-color: rgba(0, 0, 0, 0);
+
+  /* reduz o espaço reservado para o titulo dentro do grafico Plotly */
+  position: relative;
+  top: -50px;
+  z-index: -5;
 }

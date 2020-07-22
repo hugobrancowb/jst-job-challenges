@@ -73,10 +73,10 @@ export class TradeHistory {
   }
 
   /* transforma abreviatura em nome completo para a moeda */
-  get_name(abrv: string): string {
+  get_name(abreviacao_da_moeda: string): string {
     const names = CurrenciesNames;
 
-    return names[abrv];
+    return names[abreviacao_da_moeda];
   }
 }
 

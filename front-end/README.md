@@ -11,7 +11,7 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 - [x] Trabalhar com dados fakes antes de implementar API;
 - [x] Ter certeza que os tipos utilizados funcionarão para todas funcionalidades abaixo;
 - [x] Gerar uma tabela;
-- [] Gerar um gráfico;
+- [x] Gerar um gráfico;
 - [] Encontrar solução de calendário para permitir a busca;
 - [] Converter calendário em datas no formato do API (yyyy-mm-dd);
 - [] Obter os dados através de uma API;
@@ -25,8 +25,7 @@ Antes de realizar a pesquisa:
 
 Após realizar a pesquisa
 
-- [] Permitir escolher outras moedas sem precisar realizar nova requisição de API;
-- [] Permitir escolher novas datas ();
+- [] Permitir que o usuário altere sua escolha de moeda ou datas e realizar nova Request;
 
 ### O que seria interessante implementar mas não é urgente
 
