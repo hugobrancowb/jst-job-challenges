@@ -20,8 +20,8 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 
 Antes de realizar a pesquisa:
 
-- [] Escolher datas (início e fim);
-- [] Escolher a moeda de preferência;
+- [x] Escolher datas (início e fim);
+- [x] Escolher a moeda de preferência;
 
 Após realizar a pesquisa
 

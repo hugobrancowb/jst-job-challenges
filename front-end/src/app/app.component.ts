@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { CurrenciesNames } from './services/samples/sampledata';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,21 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 export class AppComponent implements OnInit {
   title = 'Cotação do Dólar';
 
-  data_inicio: Date;
-  data_fim: Date;
+  private data_inicio: Date;
+  private data_fim: Date;
+
+  moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
+  opcoes_sigla = new FormControl('');
 
   constructor() {}
 
   ngOnInit(): void {}
 
   get_response() {
-    console.log('');
+    console.log('get_response()');
+    console.log('inicio: ' + this.date_to_string(this.data_inicio));
+    console.log('fim: ' + this.date_to_string(this.data_fim));
+    console.log('sigla: ' + this.opcoes_sigla.value);
   }
 
   date_change(
@@ -28,8 +35,10 @@ export class AppComponent implements OnInit {
     /* associa a data de acordo com o indicador */
     if (inicio_ou_fim === 'inicio') {
       this.data_inicio = event.value;
+      console.log(this.data_inicio);
     } else {
       this.data_fim = event.value;
+      console.log(this.data_fim);
     }
   }
 
@@ -45,4 +54,8 @@ export class AppComponent implements OnInit {
 
     return string_array[2] + '-' + string_array[1] + '-' + string_array[0];
   }
+}
+
+interface SiglasNomes {
+  [key: string]: string;
 }
