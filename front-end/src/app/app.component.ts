@@ -11,21 +11,33 @@ import { CurrenciesNames } from './services/samples/sampledata';
 export class AppComponent implements OnInit {
   title = 'Cotação do Dólar';
 
-  private data_inicio: Date;
-  private data_fim: Date;
+  data_inicio = new FormControl('');
+  data_fim = new FormControl('');
+  moeda = new FormControl('');
 
-  moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
-  opcoes_sigla = new FormControl('');
+  lista_moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
 
   constructor() {}
 
   ngOnInit(): void {}
 
   get_response() {
-    console.log('get_response()');
-    console.log('inicio: ' + this.date_to_string(this.data_inicio));
-    console.log('fim: ' + this.date_to_string(this.data_fim));
-    console.log('sigla: ' + this.opcoes_sigla.value);
+    /* se as datas e/ou moeda não estiverem definidas, seleciona valores padrões caso o usuário não escolha alguma opção */
+
+    const today = new Date();
+    const one_year_ago = new Date();
+    one_year_ago.setDate(one_year_ago.getDate() - 365);
+
+    if (this.data_inicio.value === '') {
+      this.data_inicio.patchValue(one_year_ago);
+    }
+    if (this.data_fim.value === '') {
+      this.data_fim.patchValue(today);
+    }
+    if (this.moeda.value === '' || this.moeda.value === '--') {
+      /* Dólar é a opção padrão */
+      this.moeda.patchValue('USD');
+    }
   }
 
   date_change(
@@ -34,11 +46,9 @@ export class AppComponent implements OnInit {
   ): void {
     /* associa a data de acordo com o indicador */
     if (inicio_ou_fim === 'inicio') {
-      this.data_inicio = event.value;
-      console.log(this.data_inicio);
+      this.data_inicio.patchValue(event.value);
     } else {
-      this.data_fim = event.value;
-      console.log(this.data_fim);
+      this.data_fim.patchValue(event.value);
     }
   }
 
