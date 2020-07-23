@@ -1,9 +1,9 @@
 /* Info Panel */
 
 /* Colors */
-$torquoise: #4ECDC4;
-$lime: #EDFF7A;
-$cinza: #292F36;
+$torquoise: #4ecdc4;
+$lime: #edff7a;
+$cinza: #292f36;
 $orange: #bb4430;
 
 div.main.container {
@@ -15,6 +15,12 @@ div.main.container {
 
   h2 {
     text-align: center;
+    a,
+    a:hover,
+    a:visited {
+      color: $orange;
+      font-weight: 700;
+    }
   }
 
   p {

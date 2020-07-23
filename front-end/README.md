@@ -23,10 +23,14 @@ Antes de realizar a pesquisa:
 - [x] Escolher datas (início e fim);
 - [x] Escolher a moeda de preferência;
 
-Após realizar a pesquisa
+Após realizar a pesquisa:
 
 - [x] Permitir que o usuário altere sua escolha de moeda ou datas e realizar nova Request;
 - [x] Permitir que o usuário veja o gráfico de outras moedas além do Real;
+
+Estilos:
+
+- [x] Garantir responsividade do site;
 
 ### O que seria interessante implementar mas não é urgente
 

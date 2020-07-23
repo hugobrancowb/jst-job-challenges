@@ -6,10 +6,13 @@
 
 <app-infopanel></app-infopanel>
 
-<app-tabela></app-tabela>
-<mat-divider [ngClass]="!data ? 'hide' : ''"></mat-divider>
 <app-grafico></app-grafico>
+<mat-divider [ngClass]="!data ? 'hide' : ''"></mat-divider>
+<app-tabela></app-tabela>
 
 <footer class="footer" [ngClass]="!data ? 'hide' : ''">
-  <p>desenvolvido por <a href="#">hugo branco</a></p>
+  <p>
+    desenvolvido por
+    <a href="https://hugobrancowb.github.io/" target="_blank">Hugo Branco</a>
+  </p>
 </footer>
