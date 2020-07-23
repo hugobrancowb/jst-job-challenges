@@ -6,7 +6,9 @@
           <tr>
             <th scope="col">Abreviatura</th>
             <th scope="col">Moeda</th>
-            <th scope="col">Quanto vale 1,00 USD nesta moeda</th>
+            <th scope="col">
+              Quanto vale 1,00 {{ sigla_da_moeda }} nesta moeda
+            </th>
           </tr>
         </thead>
         <tbody *ngFor="let item of most_recent_data">

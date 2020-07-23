@@ -33,6 +33,45 @@ export class DataserviceService {
     this.set_data(data); /* transforma em TradeHistory e aciona o next() */
     return this.response.asObservable();
   }
+
+  /* converte para string no formato yyyy-mm-dd */
+  date_to_string(date: Date): string {
+    const date_string = date.toLocaleString('pt-BR', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    });
+
+    const string_array = date_string.split('/');
+
+    return string_array[2] + '-' + string_array[1] + '-' + string_array[0];
+  }
+
+  /* * * * * * * * * * * * * * */
+  /*      Requisições API      */
+
+  async request_data(
+    inicio: Date,
+    fim: Date,
+    moeda: string
+  ): Promise<Observable<TradeHistory>> {
+    /* apenas para testes: importa sample data */
+
+    await this.http
+      .get(
+        'https://api.frankfurter.app/' +
+          this.date_to_string(inicio) +
+          '..' +
+          this.date_to_string(fim) +
+          '?from=' +
+          moeda
+      )
+      .subscribe((res: DataResponse) => {
+        this.set_data(res); /* transforma em TradeHistory e aciona o next() */
+      });
+
+    return this.response.asObservable();
+  }
 }
 
 /* nosso tipo principal para trabalhar no aplicativo */

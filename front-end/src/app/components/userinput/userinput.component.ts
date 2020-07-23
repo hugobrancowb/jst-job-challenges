@@ -24,7 +24,30 @@ export class UserinputComponent implements OnInit {
 
   get_response() {
     /* se as datas e/ou moeda não estiverem definidas, seleciona valores padrões caso o usuário não escolha alguma opção */
+    this.set_defaults_if_undefined();
 
+    this.dataservice.request_data(
+      this.data_inicio.value,
+      this.data_fim.value,
+      this.moeda.value
+    );
+  }
+
+  /* salva valor em variavel a cada mudança no DatePicker */
+  date_change(
+    inicio_ou_fim: string,
+    event: MatDatepickerInputEvent<Date>
+  ): void {
+    /* associa a data de acordo com o indicador */
+    if (inicio_ou_fim === 'inicio') {
+      this.data_inicio.patchValue(event.value);
+    } else {
+      this.data_fim.patchValue(event.value);
+    }
+  }
+
+  /* se as datas e/ou moeda não estiverem definidas, seleciona valores padrões caso o usuário não escolha alguma opção */
+  set_defaults_if_undefined(): void {
     const today = new Date();
     const one_year_ago = new Date();
     one_year_ago.setDate(one_year_ago.getDate() - 365);
@@ -39,33 +62,6 @@ export class UserinputComponent implements OnInit {
       /* Dólar é a opção padrão */
       this.moeda.patchValue('USD');
     }
-
-    this.dataservice.get_sample(); /* mudar para função que dispara HTTP Request */
-  }
-
-  date_change(
-    inicio_ou_fim: string,
-    event: MatDatepickerInputEvent<Date>
-  ): void {
-    /* associa a data de acordo com o indicador */
-    if (inicio_ou_fim === 'inicio') {
-      this.data_inicio.patchValue(event.value);
-    } else {
-      this.data_fim.patchValue(event.value);
-    }
-  }
-
-  /* converte para string no formato yyyy-mm-dd */
-  date_to_string(date: Date): string {
-    const date_string = date.toLocaleString('pt-BR', {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    });
-
-    const string_array = date_string.split('/');
-
-    return string_array[2] + '-' + string_array[1] + '-' + string_array[0];
   }
 }
 
