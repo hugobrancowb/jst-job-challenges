@@ -8,8 +8,6 @@ import {
 import { CurrenciesNames } from '../../services/samples/sampledata';
 import { SiglasNomes } from '../userinput/userinput.component';
 
-declare var Plotly: any;
-
 @Component({
   selector: 'app-grafico',
   templateUrl: './grafico.component.html',
@@ -22,6 +20,12 @@ export class GraficoComponent implements OnInit {
 
   lista_moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
   moeda = new FormControl('BRL'); // valor padrão: moeda nacional
+
+  /* dados plot */
+  options: any; // opcoes para o gráfico
+  update_data: any; // update nos dados
+  x_axis: Array<string>;
+  y_axis: Array<number>;
 
   constructor(private dataservice: DataserviceService) {}
 
@@ -38,41 +42,27 @@ export class GraficoComponent implements OnInit {
   }
 
   plot() {
-    /* opções gráficas para o Plotly */
-    const graph = {
-      data: [
+    /* opções gráficas para o ngx-charts */
+    this.options = graphic_options;
+
+    this.update_data = {
+      tooltip: {
+        formatter: 'Data: {b}<br/>Valor: {c} ' + this.moeda.value,
+      },
+      xAxis: {
+        data: this.get_dates_from_currency(),
+      },
+      yAxis: {
+        axisLabel: {
+          formatter: '{value} ' + this.moeda.value,
+        },
+      },
+      series: [
         {
-          x: this.get_dates_from_currency(),
-          y: this.get_values_from_currency(this.moeda.value),
-          type: 'scatter',
-          mode: 'lines+markers+text',
-          textposition: 'top',
-          showlegend: false,
-          hovertemplate: '%{y:.3f} ' + this.moeda.value + '<extra></extra>',
+          data: this.get_values_from_currency(this.moeda.value),
         },
       ],
-      layout: {
-        title: false,
-        font: { size: 12 },
-        hovermode: 'closest',
-        xaxis: { title: 'Datas', fixedrange: true },
-        yaxis: {
-          title: 'Valor em ' + this.moeda.value,
-          fixedrange: true,
-          rangemode: 'tozero',
-          showticksuffix: 'all',
-          ticksuffix: ' ' + this.moeda.value,
-        },
-        paper_bgcolor: 'rgba(0,0,0,0)',
-        plot_bgcolor: 'rgba(0,0,0,0)',
-      },
-      config: {
-        responsive: true,
-        displayModeBar: false,
-      },
     };
-
-    Plotly.newPlot('grafico', graph.data, graph.layout, graph.config);
   }
 
   /* exporta uma array com todos valores da moeda */
@@ -94,7 +84,14 @@ export class GraficoComponent implements OnInit {
   }
 
   get_dates_from_currency(): Array<string> {
-    const dates = Object.keys(this.data.array);
+    let dates = Object.keys(this.data.array);
+
+    /* transforma: 2020/12/31 => 31/12/2020 */
+    dates = dates.map((item) => {
+      const newdate = item.split('-');
+      return newdate[2] + '/' + newdate[1] + '/' + newdate[0];
+    });
+
     return dates;
   }
 
@@ -110,3 +107,39 @@ export class GraficoComponent implements OnInit {
     return lista_filtrada;
   }
 }
+
+const graphic_options = {
+  title: {
+    show: false,
+  },
+  tooltip: {
+    show: true,
+    trigger: 'axis',
+    axisPointer: {
+      animation: false,
+    },
+  },
+  xAxis: {
+    type: 'category',
+    splitLine: {
+      show: false,
+    },
+    data: [],
+  },
+  yAxis: {
+    type: 'value',
+    boundaryGap: [0, '100%'],
+    min: 0,
+    splitLine: {
+      show: false,
+    },
+  },
+  series: [
+    {
+      type: 'line',
+      showSymbol: false,
+      hoverAnimation: false,
+      data: [],
+    },
+  ],
+};

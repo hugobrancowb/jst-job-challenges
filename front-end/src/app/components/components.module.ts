@@ -6,6 +6,10 @@ import { UserinputComponent } from './userinput/userinput.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+/* ngx-charts */
+import { NgxEchartsModule } from 'ngx-echarts';
+import * as echarts from 'echarts';
+
 /* Material */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -39,6 +43,9 @@ import { InfopanelComponent } from './infopanel/infopanel.component';
   ],
   imports: [
     ReactiveFormsModule,
+    NgxEchartsModule.forRoot({
+      echarts,
+    }),
     BrowserAnimationsModule,
     MatNativeDateModule,
     MatInputModule,

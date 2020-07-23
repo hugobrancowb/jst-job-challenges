@@ -11,7 +11,7 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 - [x] Trabalhar com dados fakes antes de implementar API;
 - [x] Ter certeza que os tipos utilizados funcionarão para todas funcionalidades abaixo;
 - [x] Gerar uma tabela;
-- [x] Gerar um gráfico;
+- [x] Gerar um gráfico (era plotly agora é ngx-echarts);
 - [x] Encontrar solução de calendário para permitir a busca;
 - [x] Converter calendário em datas no formato do API (yyyy-mm-dd);
 - [x] Obter os dados através de uma API;
@@ -31,7 +31,7 @@ Após realizar a pesquisa
 ### O que seria interessante implementar mas não é urgente
 
 - [] Material Table
-- [] Responsividade do gráfico
+- [x] Responsividade do gráfico
 - [] Permitir escolher novas datas sem realizar nova Request caso os dados obtidos já contenham a faixa de datas desejada;
 - [] Impedir que usuário escolha data-inicio igual à data-fim na pesquisa;
 - [] Adicionar funcionalidade para converter dólares para a moeda selecionada (e vice-versa);

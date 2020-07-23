@@ -18,6 +18,13 @@
         {{ titulo_sufix }}
       </h2>
     </div>
-    <div class="col-12" id="grafico"></div>
+    <div class="col-12" id="grafico">
+      <div
+        echarts
+        [options]="options"
+        [merge]="update_data"
+        class="ngxchart"
+      ></div>
+    </div>
   </div>
 </div>
