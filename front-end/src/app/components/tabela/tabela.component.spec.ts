@@ -6,7 +6,7 @@ import { TabelaComponent } from './tabela.component';
 import {
   DataserviceService,
   DataResponse,
-  TradeByDate,
+  TradeHistory,
 } from '../../services/dataservice.service';
 
 import { SampleData } from '../../services/samples/sampledata';
@@ -29,30 +29,32 @@ describe('TabelaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should get data from subscribing to service', async(() => {
+  it('should get data from subscribing to service', (done) => {
     const service = TestBed.get(DataserviceService);
     const sampledata: DataResponse = SampleData;
 
-    spyOn(service, 'get_sample').and.returnValue(of(sampledata));
+    spyOn(service, 'get_data').and.returnValue(
+      of(new TradeHistory(sampledata))
+    );
 
-    fixture.detectChanges();
+    service.get_data().subscribe((data) => {
+      expect(data).toBeDefined();
+      done();
+    });
+  });
 
-    expect(component.most_recent_data).toBeDefined();
-  }));
-
-  it('most_recent_data should be instance of TradeByDate', async(() => {
+  it('most_recent_data should be instance of TradeByDate', (done) => {
     const service = TestBed.get(DataserviceService);
     const sampledata: DataResponse = SampleData;
 
-    spyOn(service, 'get_sample').and.returnValue(of(sampledata));
+    spyOn(service, 'get_data').and.returnValue(
+      of(new TradeHistory(sampledata))
+    );
 
-    fixture.detectChanges();
-
-    /* como TradyByDate é uma interface, então olhamos para suas keys */
-    expect(Object.keys(component.most_recent_data[0])).toEqual([
-      'sigla',
-      'nome',
-      'valor',
-    ]);
-  }));
+    service.get_data().subscribe((data) => {
+      component.most_recent_data = data.get_data_from_last_date();
+      expect(component.most_recent_data).toBeDefined();
+      done();
+    });
+  });
 });
