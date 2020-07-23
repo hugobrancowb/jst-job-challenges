@@ -21,7 +21,7 @@ export class GraficoComponent implements OnInit {
   titulo_sufix: string;
 
   lista_moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
-  moeda = new FormControl('BRL'); // valor padrão é nossa moeda nacional
+  moeda = new FormControl('BRL'); // valor padrão: moeda nacional
 
   constructor(private dataservice: DataserviceService) {}
 
@@ -98,8 +98,15 @@ export class GraficoComponent implements OnInit {
     return dates;
   }
 
-  currency_change(event) {
-    // console.log(event);
+  currency_change() {
     this.plot();
+  }
+
+  /* filtra para nao mostrar a moeda BASE na lista de cambio e, assim, não oferecer a opção de converter euro em euro, por exemplo */
+  filter_moedas(): SiglasNomes {
+    const lista_filtrada = Object.assign({}, CurrenciesNames);
+    delete lista_filtrada[this.data.base];
+
+    return lista_filtrada;
   }
 }
