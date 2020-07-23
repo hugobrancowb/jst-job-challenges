@@ -14,7 +14,7 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 - [x] Gerar um gráfico;
 - [x] Encontrar solução de calendário para permitir a busca;
 - [x] Converter calendário em datas no formato do API (yyyy-mm-dd);
-- [] Obter os dados através de uma API;
+- [x] Obter os dados através de uma API;
 
 ### MVP
 

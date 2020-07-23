@@ -15,7 +15,10 @@ div.main.container {
       thead th {
         position: sticky;
         top: 0;
-        background-color: #ffffff;
+      }
+
+      thead.thead-dark th {
+        font-weight: 500;
       }
     }
   }
