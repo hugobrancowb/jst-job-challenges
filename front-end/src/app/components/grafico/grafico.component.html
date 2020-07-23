@@ -1,7 +1,25 @@
 <div class="main container" [ngClass]="!data ? 'hide' : ''">
   <div class="row">
     <div class="col-12">
-      <h2 class="titulo_do_grafico">{{ titulo }}</h2>
+      <h2 class="titulo_do_grafico">
+        {{ titulo_prefix }}
+
+        <mat-form-field class="currency_picker">
+          <mat-select
+            [formControl]="moeda"
+            (ngModelChange)="currency_change($event)"
+          >
+            <mat-option
+              *ngFor="let moeda of lista_moedas | keyvalue"
+              [value]="moeda.key"
+            >
+              {{ moeda.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        {{ titulo_sufix }}
+      </h2>
     </div>
     <div class="col-12" id="grafico"></div>
   </div>

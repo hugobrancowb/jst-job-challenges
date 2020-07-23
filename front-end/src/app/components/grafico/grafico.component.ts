@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {
   DataserviceService,
   CurrencyValue,
   TradeHistory,
 } from '../../services/dataservice.service';
+import { CurrenciesNames } from '../../services/samples/sampledata';
+import { SiglasNomes } from '../userinput/userinput.component';
 
 declare var Plotly: any;
 
@@ -13,9 +16,12 @@ declare var Plotly: any;
   styleUrls: ['./grafico.component.scss'],
 })
 export class GraficoComponent implements OnInit {
-  currency = 'BRL'; // moeda selecionada para analisar seu valor em relação ao dólar
   data: TradeHistory; // todos os dados históricos de cotação do dólar
-  titulo: string;
+  titulo_prefix: string;
+  titulo_sufix: string;
+
+  lista_moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
+  moeda = new FormControl('BRL'); // valor padrão é nossa moeda nacional
 
   constructor(private dataservice: DataserviceService) {}
 
@@ -23,11 +29,9 @@ export class GraficoComponent implements OnInit {
     this.dataservice.get_data().subscribe((data: TradeHistory) => {
       this.data = data;
 
-      this.titulo = // atualiza titulo do grafico
-        'Valor necessário em ' +
-        this.currency +
-        ' para comprar 1' +
-        this.data.base;
+      // atualiza titulo do grafico
+      this.titulo_prefix = 'Valor necessário em ';
+      this.titulo_sufix = ' para comprar 1' + this.data.base;
 
       this.plot(); // plota o grafico
     });
@@ -39,12 +43,12 @@ export class GraficoComponent implements OnInit {
       data: [
         {
           x: this.get_dates_from_currency(),
-          y: this.get_values_from_currency(this.currency),
+          y: this.get_values_from_currency(this.moeda.value),
           type: 'scatter',
           mode: 'lines+markers+text',
           textposition: 'top',
           showlegend: false,
-          hovertemplate: '%{y:.3f} ' + this.currency + '<extra></extra>',
+          hovertemplate: '%{y:.3f} ' + this.moeda.value + '<extra></extra>',
         },
       ],
       layout: {
@@ -53,11 +57,11 @@ export class GraficoComponent implements OnInit {
         hovermode: 'closest',
         xaxis: { title: 'Datas', fixedrange: true },
         yaxis: {
-          title: 'Valor em ' + this.currency,
+          title: 'Valor em ' + this.moeda.value,
           fixedrange: true,
           rangemode: 'tozero',
           showticksuffix: 'all',
-          ticksuffix: ' ' + this.currency,
+          ticksuffix: ' ' + this.moeda.value,
         },
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
@@ -92,5 +96,10 @@ export class GraficoComponent implements OnInit {
   get_dates_from_currency(): Array<string> {
     const dates = Object.keys(this.data.array);
     return dates;
+  }
+
+  currency_change(event) {
+    // console.log(event);
+    this.plot();
   }
 }

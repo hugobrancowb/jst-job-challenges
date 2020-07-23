@@ -26,9 +26,12 @@ Antes de realizar a pesquisa:
 Após realizar a pesquisa
 
 - [x] Permitir que o usuário altere sua escolha de moeda ou datas e realizar nova Request;
+- [x] Permitir que o usuário veja o gráfico de outras moedas além do Real;
 
 ### O que seria interessante implementar mas não é urgente
 
+- [] Material Table
+- [] Responsividade do gráfico
 - [] Permitir escolher novas datas sem realizar nova Request caso os dados obtidos já contenham a faixa de datas desejada;
 - [] Impedir que usuário escolha data-inicio igual à data-fim na pesquisa;
 - [] Adicionar funcionalidade para converter dólares para a moeda selecionada (e vice-versa);

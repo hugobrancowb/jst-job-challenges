@@ -65,6 +65,6 @@ export class UserinputComponent implements OnInit {
   }
 }
 
-interface SiglasNomes {
+export interface SiglasNomes {
   [key: string]: string;
 }
