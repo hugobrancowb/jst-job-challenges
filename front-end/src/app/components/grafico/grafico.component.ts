@@ -55,6 +55,7 @@ export class GraficoComponent implements OnInit {
         yaxis: {
           title: 'Valor em ' + this.currency,
           fixedrange: true,
+          rangemode: 'tozero',
           showticksuffix: 'all',
           ticksuffix: ' ' + this.currency,
         },
