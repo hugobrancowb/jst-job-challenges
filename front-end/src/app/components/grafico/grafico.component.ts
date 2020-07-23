@@ -33,6 +33,11 @@ export class GraficoComponent implements OnInit {
     this.dataservice.get_data().subscribe((data: TradeHistory) => {
       this.data = data;
 
+      /* se a moeda base for o real, começamos a mostrar o grafico utilizando dólar */
+      if (this.data.base === 'BRL') {
+        this.moeda.patchValue('USD');
+      }
+
       // atualiza titulo do grafico
       this.titulo_prefix = 'Valor necessário em ';
       this.titulo_sufix = ' para comprar 1' + this.data.base;

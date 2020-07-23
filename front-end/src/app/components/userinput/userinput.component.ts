@@ -5,6 +5,7 @@ import { CurrenciesNames } from '../../services/samples/sampledata';
 /* Material */
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { DataserviceService } from 'src/app/services/dataservice.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-userinput',
@@ -18,7 +19,36 @@ export class UserinputComponent implements OnInit {
 
   lista_moedas: SiglasNomes = CurrenciesNames; // lista de moedas com abreviacoes (keys) e nomes extensos (values)
 
-  constructor(private dataservice: DataserviceService) {}
+  constructor(
+    private dataservice: DataserviceService,
+    private route: ActivatedRoute
+  ) {
+    if (
+      this.route.snapshot.params.from &&
+      this.route.snapshot.params.to &&
+      this.route.snapshot.params.currency
+    ) {
+      /* há os 3 parametros no link url */
+
+      // modelo: http://localhost:4200/2020-01-01/2020-07-15/USD
+
+      /* Converter de String para Date */
+      let date_string: Array<Date>;
+
+      date_string = this.date_from_string(
+        this.route.snapshot.params.from as string,
+        this.route.snapshot.params.to as string
+      );
+
+      /* atualizar variaveis */
+      this.data_inicio.patchValue(date_string[0] as Date);
+      this.data_fim.patchValue(date_string[1] as Date);
+      this.moeda.patchValue(this.route.snapshot.params.currency as string);
+
+      /* valores definidos, podemos fazer a requisição dos dados */
+      this.get_response();
+    }
+  }
 
   ngOnInit(): void {}
 
@@ -62,6 +92,33 @@ export class UserinputComponent implements OnInit {
       /* Dólar é a opção padrão */
       this.moeda.patchValue('USD');
     }
+  }
+
+  date_from_string(from: string, to: string): Array<Date> {
+    const output: Array<Date> = [];
+
+    /* from */
+    let date_string = this.route.snapshot.params.from.split('-');
+    const from_param = new Date();
+    from_param.setFullYear(
+      parseInt(date_string[0], 10),
+      parseInt(date_string[1], 10) - 1,
+      parseInt(date_string[2], 10)
+    );
+
+    /* to */
+    date_string = this.route.snapshot.params.to.split('-');
+    const to_param = new Date();
+    to_param.setFullYear(
+      parseInt(date_string[0], 10),
+      parseInt(date_string[1], 10) - 1,
+      parseInt(date_string[2], 10)
+    );
+
+    output.push(from_param);
+    output.push(to_param);
+
+    return output;
   }
 }
 

@@ -16,7 +16,14 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 - [x] Converter calendário em datas no formato do API (yyyy-mm-dd);
 - [x] Obter os dados através de uma API;
 
-### MVP
+### Versões
+
+## v1.0.1
+
+- [x] Utilizar rotas para realizar a pesquisa;
+- [] Adicionar funcionalidade para observar dados de outras datas na tabela; formatar a data;
+
+## v1.0.0 - MVP
 
 Antes de realizar a pesquisa:
 
@@ -31,11 +38,5 @@ Após realizar a pesquisa:
 Estilos:
 
 - [x] Garantir responsividade do site;
-
-### O que seria interessante implementar mas não é urgente
-
-- [] Material Table
+- [x] Material Table
 - [x] Responsividade do gráfico
-- [] Permitir escolher novas datas sem realizar nova Request caso os dados obtidos já contenham a faixa de datas desejada;
-- [] Impedir que usuário escolha data-inicio igual à data-fim na pesquisa;
-- [] Adicionar funcionalidade para converter dólares para a moeda selecionada (e vice-versa);
