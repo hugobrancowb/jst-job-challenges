@@ -7,9 +7,9 @@
 <app-infopanel></app-infopanel>
 
 <app-tabela></app-tabela>
-<mat-divider *ngIf="data"></mat-divider>
+<mat-divider [ngClass]="!data ? 'hide' : ''"></mat-divider>
 <app-grafico></app-grafico>
 
-<footer class="footer" *ngIf="data">
+<footer class="footer" [ngClass]="!data ? 'hide' : ''">
   <p>desenvolvido por <a href="#">hugo branco</a></p>
 </footer>

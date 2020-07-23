@@ -1,6 +1,7 @@
 /* Tabela */
+
 div.main.container {
-  padding: 60px;
+  padding: 30px 20px;
 
   &.hide {
     display: none;
@@ -10,15 +11,26 @@ div.main.container {
     max-height: 50vh;
     overflow: scroll;
 
-
-    table {
-      thead th {
+    .table thead {
+      th {
         position: sticky;
-        top: 0;
-      }
-
-      thead.thead-dark th {
+        top: -2px;
         font-weight: 500;
+        padding: 10px 5px;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES / Breakpoints */
+
+@media(min-width: 768px) {
+  div.main.container div#tabela {
+    .table thead {
+      th {
+        text-align: left;
       }
     }
   }

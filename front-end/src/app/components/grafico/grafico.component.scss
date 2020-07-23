@@ -1,9 +1,10 @@
 /* Gráfico */
 div.main.container {
-  padding: 60px;
+
+  padding: 30px 20px;
 
   min-height: 50vh;
-  max-height: 90vh;
+  max-height: 70vh;
 
   &.hide {
     display: none;
@@ -14,6 +15,7 @@ div.main.container {
   }
 
   div#grafico {
+    padding: 0;
     background-color: rgba(0, 0, 0, 0);
 
     /* reduz o espaço reservado para o titulo dentro do grafico Plotly */
@@ -22,3 +24,28 @@ div.main.container {
     z-index: 5;
   }
 }
+
+/* MEDIA QUERIES / Breakpoints */
+
+@media(min-width: 576px) {}
+
+@media(min-width: 768px) {}
+
+@media(min-width: 992px) {
+  div.main.container {
+    padding: 60px;
+  }
+}
+
+@media(min-width: 1200px) {}
+
+/*
+@media(min-width: 576px) {
+}
+@media(min-width: 768px) {
+}
+@media(min-width: 992px) {
+}
+@media(min-width: 1200px) {
+}
+*/

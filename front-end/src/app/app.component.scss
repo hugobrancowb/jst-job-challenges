@@ -8,17 +8,18 @@ $orange: #bb4430;
 
 nav.navbar {
   background-color: $torquoise;
-  padding: 30px 20px;
+  padding: 20px 0px;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
 
   h2 {
-    margin: 0 60px 0 0;
+    margin: auto;
     font-weight: 600;
+    font-size: 24px;
   }
 }
 
 footer.footer {
-  display: flex;
+  display: none;
 
   width: 100%;
   padding: 10px 0;
@@ -33,8 +34,34 @@ footer.footer {
     a:hover,
     a:visited {
       color: inherit;
-      text-decoration: none;
+      // text-decoration: none;
       font-weight: 600;
     }
   }
+}
+
+/* MEDIA QUERIES / Breakpoints */
+
+@media(min-width: 768px) {
+  nav.navbar {
+    padding: 30px 60px;
+
+    h2 {
+      font-size: 28px;
+    }
+  }
+}
+
+@media(min-width: 1200px) {
+  nav.navbar {
+    h2 {
+      margin: 0;
+      font-size: 32px;
+    }
+  }
+}
+
+/* hide */
+.hide {
+  display: none !important;
 }

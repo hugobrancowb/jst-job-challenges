@@ -26,11 +26,16 @@ export class UserinputComponent implements OnInit {
     /* se as datas e/ou moeda não estiverem definidas, seleciona valores padrões caso o usuário não escolha alguma opção */
     this.set_defaults_if_undefined();
 
+    /* remover comentario para utilizar o api */
+    /*
     this.dataservice.request_data(
       this.data_inicio.value,
       this.data_fim.value,
       this.moeda.value
     );
+    */
+
+    this.dataservice.get_sample();
   }
 
   /* salva valor em variavel a cada mudança no DatePicker */
