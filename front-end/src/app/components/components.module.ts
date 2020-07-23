@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { InfopanelComponent } from './infopanel/infopanel.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { InfopanelComponent } from './infopanel/infopanel.component';
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
   ],
   imports: [
     ReactiveFormsModule,
@@ -53,6 +55,7 @@ import { InfopanelComponent } from './infopanel/infopanel.component';
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
   ],
 })
 export class ComponentsModule {}

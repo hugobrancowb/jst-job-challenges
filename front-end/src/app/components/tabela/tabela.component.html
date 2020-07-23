@@ -1,23 +1,34 @@
 <div class="main container" [ngClass]="!most_recent_data ? 'hide' : ''">
   <div class="row">
-    <div class="col" id="tabela">
-      <table class="table table-hover table-sm">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Abreviatura</th>
-            <th scope="col">Moeda</th>
-            <th scope="col">
-              Quanto vale 1,00 {{ sigla_da_moeda }} nesta moeda
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of most_recent_data">
-            <th class="sigla" scope="row">{{ item.sigla }}</th>
-            <td class="nome">{{ item.nome }}</td>
-            <td class="valor">{{ item.valor }}</td>
-          </tr>
-        </tbody>
+    <div class="col-12" id="tabela">
+      <h2>Valores da moeda para o dia {{ date_mais_recente }}</h2>
+
+      <table mat-table [dataSource]="most_recent_data" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Sigla Column -->
+        <ng-container matColumnDef="sigla">
+          <th mat-header-cell *matHeaderCellDef>Abreviatura</th>
+          <td mat-cell *matCellDef="let element">{{ element.sigla }}</td>
+        </ng-container>
+
+        <!-- Nome Column -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef>Moeda</th>
+          <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+        </ng-container>
+
+        <!-- Valor Column -->
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef>
+            Quanto vale 1,00 {{ sigla_da_moeda }} nesta moeda
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.valor }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
   </div>

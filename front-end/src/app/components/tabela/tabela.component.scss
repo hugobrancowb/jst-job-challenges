@@ -7,18 +7,30 @@ div.main.container {
     display: none;
   }
 
-  div#tabela {
-    max-height: 50vh;
-    overflow: scroll;
+  div.row {
+    display: flex;
+  }
 
-    .table thead {
-      th {
-        position: sticky;
-        top: -2px;
-        font-weight: 500;
-        padding: 10px 5px;
-        vertical-align: middle;
-        text-align: center;
+  div#tabela {
+    width: auto;
+    padding: 0;
+    max-height: 60vh;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    h2 {
+      text-align: center;
+    }
+
+    table.mat-elevation-z8 {
+      margin: auto;
+
+      th.mat-header-cell {
+        padding: 10px !important;
+        text-align: left;
+      }
+      td.mat-cell {
+        padding: 0 10px;
       }
     }
   }
@@ -26,12 +38,13 @@ div.main.container {
 
 /* MEDIA QUERIES / Breakpoints */
 
-@media(min-width: 768px) {
-  div.main.container div#tabela {
-    .table thead {
-      th {
-        text-align: left;
-      }
-    }
-  }
+/*
+@media(min-width: 576px) {
 }
+@media(min-width: 768px) {
+}
+@media(min-width: 992px) {
+}
+@media(min-width: 1200px) {
+}
+*/

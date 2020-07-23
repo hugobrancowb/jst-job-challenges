@@ -12,7 +12,11 @@ import {
 })
 export class TabelaComponent implements OnInit {
   most_recent_data: TradeByDate;
+  date_mais_recente: string;
   sigla_da_moeda: string;
+
+  /* Material Table */
+  displayedColumns = ['sigla', 'nome', 'valor'];
 
   constructor(private dataservice: DataserviceService) {}
 
@@ -21,6 +25,7 @@ export class TabelaComponent implements OnInit {
       const _tradeHistory = data;
       this.sigla_da_moeda = data.base;
       this.most_recent_data = _tradeHistory.get_data_from_last_date();
+      this.date_mais_recente = _tradeHistory.get_last_date();
     });
   }
 }
