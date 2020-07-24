@@ -36,6 +36,8 @@ export class GraficoComponent implements OnInit {
       /* se a moeda base for o real, começamos a mostrar o grafico utilizando dólar */
       if (this.data.base === 'BRL') {
         this.moeda.patchValue('USD');
+      } else {
+        this.moeda.patchValue('BRL');
       }
 
       // atualiza titulo do grafico
