@@ -52,7 +52,7 @@ describe('TabelaComponent', () => {
     );
 
     service.get_data().subscribe((data) => {
-      component.most_recent_data = data.get_data_from_last_date();
+      component.most_recent_data = data.get_data_from_date('2020-01-31');
       expect(component.most_recent_data).toBeDefined();
       done();
     });

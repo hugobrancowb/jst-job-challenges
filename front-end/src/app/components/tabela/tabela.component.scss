@@ -17,6 +17,10 @@ div.main.container {
 
     h2 {
       text-align: center;
+
+      .mat-form-field {
+        text-align: center;
+      }
     }
 
     table.mat-elevation-z8 {

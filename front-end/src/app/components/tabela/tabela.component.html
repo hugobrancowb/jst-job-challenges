@@ -1,7 +1,22 @@
 <div class="main container" [ngClass]="!most_recent_data ? 'hide' : ''">
   <div class="row">
     <div class="col-12" id="tabela">
-      <h2>Valores da moeda para o dia {{ date_mais_recente }}</h2>
+      <h2>
+        Valores da moeda para o dia
+        <mat-form-field class="currency_picker">
+          <mat-select
+            [formControl]="date_em_exibicao"
+            (ngModelChange)="date_change()"
+          >
+            <mat-option
+              *ngFor="let data of todas_as_datas_recebidas"
+              [value]="data"
+            >
+              {{ data }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </h2>
 
       <table mat-table [dataSource]="most_recent_data" class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.

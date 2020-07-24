@@ -104,10 +104,8 @@ export class TradeHistory {
   }
 
   /* returns data the most recent date from current data */
-  get_data_from_last_date(): TradeByDate {
-    const last_date = this.get_last_date();
-
-    return this.array[last_date];
+  get_data_from_date(date: string): TradeByDate {
+    return this.array[date];
   }
 
   /* returns the most recent date  */
@@ -116,6 +114,11 @@ export class TradeHistory {
     const size = dates_array.length - 1;
 
     return dates_array[size];
+  }
+
+  /* returns an array of dates in string */
+  get_all_dates(): Array<string> {
+    return Object.keys(this.array); // Array com todas datas da resposta
   }
 
   /* transforma abreviatura em nome completo para a moeda */

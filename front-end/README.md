@@ -21,7 +21,8 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 ## v1.0.1
 
 - [x] Utilizar rotas para realizar a pesquisa;
-- [] Adicionar funcionalidade para observar dados de outras datas na tabela; formatar a data;
+- [x] Adicionar funcionalidade para observar dados de outras datas na tabela;
+- [] Formatar todas as datas? Talvez?
 
 ## v1.0.0 - MVP
 
