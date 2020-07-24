@@ -1,49 +1,43 @@
-# Justa @ Desafios de Seleção
+# Cotação do Dólar
 
-## Vagas Disponíveis
+[Cotação do Dólar](https://novefolhas.studio/cotacao) Utiliza API da [Frankfurter](https://www.frankfurter.app/docs/) para obter dados da cotação do dólar para diversas moedas ao fornecer uma faixa de tempo.
 
-- 5x Desenvolvedor(a) Backend
-- 2x Desenvolvedor(a) Frontend
-- 1x Analista de Banco de Dados (DBA)
-- 1x DevOps
+## Planejamento
 
-Maiores detalhes em: https://jobs.kenoby.com/justa
+### Primeiras funcionalidades gerais
 
-## Requisitos Mínimos
+Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma versão com funcionalidade real.
 
-- Ter, no mínimo, 2+ anos de experiência comprovada (Profissional ou Acadêmica)
-- Noções fortes de lógica, raciocínio rápido e foco
-- Ótima comunicação
-- Entregar mais do que é esperado
-- Trabalho em equipe com confiança
-- Disponibilidade para morar em Recife / PE
-  - Não fazemos trabalhos remotos!
+- [x] Trabalhar com dados fakes antes de implementar API;
+- [x] Ter certeza que os tipos utilizados funcionarão para todas funcionalidades abaixo;
+- [x] Gerar uma tabela;
+- [x] Gerar um gráfico (era plotly agora é ngx-echarts);
+- [x] Encontrar solução de calendário para permitir a busca;
+- [x] Converter calendário em datas no formato do API (yyyy-mm-dd);
+- [x] Obter os dados através de uma API;
 
-## Quem somos?
+### Versões
 
-Acreditamos que para tornar o mercado mais justo é preciso começar sendo transparente, não ter letras miúdas e nem asteriscos.
-Quanto mais exigirmos que isso aconteça, maior a nossa chance de termos uma nova realidade no mercado.
-Há muitas maneiras de aceitar cartões e aí que entramos em cena, com **taxas JUSTAS**, **crédito fácil, rápido e sempre com um JUSTO de confiança perto de você**.
-Muito prazer, **somos a JUSTA**!
+## v1.0.1
 
-## Onde estamos?
+- [x] Utilizar rotas para realizar a pesquisa;
+- [x] Adicionar funcionalidade para observar dados de outras datas na tabela;
+- [x] Alterar formato da data na URL;
 
-### Sede - Alphaville (SP)
+## v1.0.0 - MVP
 
-Toda a nossa equipe operacional, ajuda, QA, comercial e logística fica lá em Alphaville - São Paulo.
+Antes de realizar a pesquisa:
 
-[Alameda Xingú, 350, Empresarial iTower Iguatemi - Alphaville Industrial, Barueri / SP](https://www.google.com/maps/place/JUSTA+COM+VC/@-23.4977729,-46.8307726,21z/data=!4m5!3m4!1s0x0:0xdb55bd5c09eb9664!8m2!3d-23.5049645!4d-46.849015)
+- [x] Escolher datas (início e fim);
+- [x] Escolher a moeda de preferência;
 
-### Filial - Recife (PE)
+Após realizar a pesquisa:
 
-Toda a equipe de Tecnologia da Informação (TI) fica lá em Recife - Pernambuco.
+- [x] Permitir que o usuário altere sua escolha de moeda ou datas e realizar nova Request;
+- [x] Permitir que o usuário veja o gráfico de outras moedas além do Real;
 
-[Avenida Antônio de Góes, 742, Empresarial Jopin - Pina, Recife / PE](https://goo.gl/maps/aEujw84xMokDW5Vv7)
+Estilos:
 
-## Como funcionam os desafios?
-
-Você deve enviar um e-mail para it-recife@justa.com.vc avisando que você tem a intenção de concorrer para uma das vagas disponíveis junto com o seu CV ou LinkedIn e uma carta apresentação falando mais sobre você, suas experiências e seus hobbies.
-
-Depois você deve realizar um Fork deste repositório e realizar todo o desenvolvimento na pasta do desafio que irá se candidatar. Vamos analisar todo o seu processo de desenvolvimento desde análise de código, versionamento, documentação e boas práticas!
-
-Sinta-se à vontade para tirar dúvidas com os **TechnoJustos** sempre que quiser!
+- [x] Garantir responsividade do site;
+- [x] Material Table
+- [x] Responsividade do gráfico

@@ -1,6 +1,6 @@
 # Cotação do Dólar
 
-Utiliza API da [Frankfurter](https://www.frankfurter.app/docs/) para obter dados da cotação do dólar para diversas moedas ao fornecer uma faixa de tempo
+[Cotação do Dólar](https://novefolhas.studio/cotacao) Utiliza API da [Frankfurter](https://www.frankfurter.app/docs/) para obter dados da cotação do dólar para diversas moedas ao fornecer uma faixa de tempo.
 
 ## Planejamento
 
