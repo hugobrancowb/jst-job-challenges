@@ -30,7 +30,7 @@ export class UserinputComponent implements OnInit {
     ) {
       /* há os 3 parametros no link url */
 
-      // modelo: http://localhost:4200/2020-01-01/2020-07-15/USD
+      // modelo: http://localhost:4200/23-10-1993/23-10-2019/BRL
 
       /* Converter de String para Date */
       let date_string: Array<Date>;
@@ -101,18 +101,18 @@ export class UserinputComponent implements OnInit {
     let date_string = this.route.snapshot.params.from.split('-');
     const from_param = new Date();
     from_param.setFullYear(
-      parseInt(date_string[0], 10),
+      parseInt(date_string[2], 10),
       parseInt(date_string[1], 10) - 1,
-      parseInt(date_string[2], 10)
+      parseInt(date_string[0], 10)
     );
 
     /* to */
     date_string = this.route.snapshot.params.to.split('-');
     const to_param = new Date();
     to_param.setFullYear(
-      parseInt(date_string[0], 10),
+      parseInt(date_string[2], 10),
       parseInt(date_string[1], 10) - 1,
-      parseInt(date_string[2], 10)
+      parseInt(date_string[0], 10)
     );
 
     output.push(from_param);

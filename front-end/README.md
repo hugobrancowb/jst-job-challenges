@@ -22,7 +22,7 @@ Apenas a contrução básica do que virá a ser a aplicação. Ainda não é uma
 
 - [x] Utilizar rotas para realizar a pesquisa;
 - [x] Adicionar funcionalidade para observar dados de outras datas na tabela;
-- [] Formatar todas as datas? Talvez?
+- [x] Alterar formato da data na URL;
 
 ## v1.0.0 - MVP
 
